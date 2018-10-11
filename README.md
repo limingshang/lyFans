@@ -38,3 +38,8 @@
         ])
     3.执行查询构造器插入数据
         php artisan db::send --class=tableSeeder
+#### 6.创建controller model 命令
+    1.创建控制器
+        php artisan make:controller Module/TestController
+    2.创建模型
+        php artisan make:model Model/TestModel
