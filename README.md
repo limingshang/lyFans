@@ -43,3 +43,6 @@
         php artisan make:controller Module/TestController
     2.创建模型
         php artisan make:model Model/TestModel
+        
+#### 7.Laravel 自定义公共函数的引入
+    https://blog.csdn.net/u011415782/article/details/78925048
