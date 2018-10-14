@@ -124,7 +124,10 @@ class CommonModel extends Model
             $model->limit($limit)->skip($skip);
         }
         if ($orderBy) {
-            $model->orderby($orderBy[0], $orderBy[1]);
+            foreach($orderBy as $key => $value){
+                $model->orderby($key, $value);
+            }
+
         }
         $list  = $model->get($columns);
         if ($list) {
@@ -140,17 +143,10 @@ class CommonModel extends Model
      *
      * @return array
      */
-    public static function getDetail($condition, $columns = ['*'], $orderBy = [])
+    public static function getDetail($condition, $columns = ['*'])
     {
         $model  = static::getModel($condition);
-        if ($orderBy) {
-            foreach($orderBy as $key => $value){
-                $model->orderby($key, $value);
-            }
-
-        }
         $detail = $model->first($columns);
-        debug($detail);
         if ($detail) {
             $detail = $detail->toArray();
         }
@@ -220,7 +216,7 @@ class CommonModel extends Model
     /**
      * Model 绑定数据
      */
-    public static function bind(&$model, $editKey, $editData) {
+    private static function bind(&$model, $editKey, $editData) {
         foreach ($editKey as $val) {
             if (isset($editData[$val])) {
                 $setValue = $editData[$val];
