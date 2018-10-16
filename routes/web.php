@@ -19,3 +19,9 @@ Route::get('/admin/customer', [
     'uses'  => 'Admin\CustomerController@index',
     'as'    => 'customer'
 ]);
+
+// 前台路由组
+Route::post('/admin/customer', [
+    'uses'  => 'Admin\CustomerController@index',
+    'as'    => 'customer'
+]);

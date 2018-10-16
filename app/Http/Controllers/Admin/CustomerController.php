@@ -10,9 +10,10 @@ class CustomerController extends CommonController
 {
     //
     public function index(){
-        $condition = ['uid' => 1];
-        $field = ['username', 'password'];
-        $customerList = CustomerModel::getDetail($condition, $field);
-        debug($customerList);
+//        $condition = ['uid' => 1];
+//        $field = ['username', 'password'];
+//        $customerList = CustomerModel::getDetail($condition, $field);
+//        debug($customerList);
+        echo 123;
     }
 }
