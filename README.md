@@ -46,3 +46,6 @@
         
 #### 7.Laravel 自定义公共函数的引入
     https://blog.csdn.net/u011415782/article/details/78925048
+
+####8. dingo 
+       https://www.cnblogs.com/zzdylan/p/6002503.html
