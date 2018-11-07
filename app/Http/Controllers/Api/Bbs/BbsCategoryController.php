@@ -10,9 +10,10 @@ use App\Http\Controllers\Controller;
 use App\Service\BbsCategoryService;
 
 class BbsCategoryController extends Controller{
-    public function index(){
+    public function getIndex($page,$limit){
         //接收数据层
         $bbsCategroyServive = BbsCategoryService::singleton();
-        $result = $bbsCategroyServive->index();
+        $result = $bbsCategroyServive->getList();
+
     }
 }

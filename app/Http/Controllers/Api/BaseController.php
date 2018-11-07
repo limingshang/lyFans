@@ -11,4 +11,23 @@ use Dingo\Api\Routing\Helpers;
 
 class BaseController extends Controller{
     use Helpers;
+    public function success($data = [])
+    {
+        return response()->json([
+            'status'  => true,
+            'code'    => 200,
+            'message' => config('errorcode.code')[200],
+            'data'    => $data,
+        ]);
+    }
+
+    public function fail($code, $data = [])
+    {
+        return response()->json([
+            'status'  => false,
+            'code'    => $code,
+            'message' => config('errorcode.code')[(int) $code],
+            'data'    => $data,
+        ]);
+    }
 }

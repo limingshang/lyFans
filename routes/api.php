@@ -16,3 +16,12 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+//社区
+Route::group(['prefix'=>'admin/bbs','namespace'=>'Api\Bbs'],function(){
+    //帖子分类
+    Route::group(['prefix'=>'cagegory'],function (){
+        //列表
+        Route::get('index','BbsCategoryController@getIndex');
+        Route::post('add','BbsCategoryController@postAdd');
+    });
+});
