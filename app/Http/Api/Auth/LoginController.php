@@ -2,7 +2,7 @@
 
 namespace App\Http\Api\Auth;
 
-use App\User;
+use App\Model\User;
 use Dingo\Api\Routing\Helpers;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
@@ -20,7 +20,7 @@ class LoginController extends Controller
 
     public function login(Request $request){
 
-        $user = User::where('email', $request->email)->orWhere('name', $request->email)->first();
+        $user = User::where('mobile', $request->mobile)->orWhere('name', $request->mobile)->first();
 
         if($user && Hash::check($request->get('password'), $user->password)){
             $token = JWTAuth::fromUser($user);

@@ -41,6 +41,11 @@ $app->singleton(
     App\Exceptions\Handler::class
 );
 
+//$app->withFacades(true, [
+//    'Tymon\JWTAuth\Facades\JWTAuth' => 'JWTAuth',
+//    'Tymon\JWTAuth\Facades\JWTFactory' => 'JWTFactory',
+//]);
+
 /*
 |--------------------------------------------------------------------------
 | Return The Application
