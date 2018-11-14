@@ -7,6 +7,7 @@
  */
 namespace App\Http\Transformers;
 //use Dingo\Blueprint\Annotation\Transaction;
+use App\Model\BbsCategory;
 use League\Fractal\TransformerAbstract;
 use App\Models\User;
 class UserTransformer extends TransformerAbstract{

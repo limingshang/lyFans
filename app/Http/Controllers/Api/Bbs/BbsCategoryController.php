@@ -6,14 +6,16 @@
  * Time: 下午8:21
  */
 namespace App\Http\Controllers\Api\Bbs;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Api\BaseController;
 use App\Service\BbsCategoryService;
+use Illuminate\Http\Request;
 
-class BbsCategoryController extends Controller{
-    public function getIndex($page,$limit){
+class BbsCategoryController extends BaseController {
+    public function getIndex(Request $request,$page,$limit){
         //接收数据层
         $bbsCategroyServive = BbsCategoryService::singleton();
-        $result = $bbsCategroyServive->getList();
+        $result = $bbsCategroyServive->getList($request->uuid,$page,$limit);
+
 
     }
 }
