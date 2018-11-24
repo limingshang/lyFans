@@ -14,7 +14,7 @@ class BbsCategoryService extends BaseAbstractService{
     public function getList($admin_uid,$count,$limit){
         //处理数据层，调用   model
         try{
-            $paging = new PagingHelper($count,$limit);
+            $paging = new PagingHelper(Award::getList($app_id)->count(),$limit);
             $list = BbsCategory::fetchByAdminUid($admin_uid);
         }catch (\Exception $e){
 

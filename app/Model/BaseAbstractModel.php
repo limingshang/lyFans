@@ -26,14 +26,14 @@ abstract class BaseAbstractModel extends Model
      *
      * @var string
      */
-    protected $connection = 'linghou';
+    protected $connection = '';
 
     /**
      * 该模型是否被自动维护时间戳
      *
      * @var bool
      */
-    public $timestamps = false;
+    public $timestamps = true;
 
     //    /**
     //     * 与模型关联的数据默认字段
@@ -50,24 +50,24 @@ abstract class BaseAbstractModel extends Model
     /*
      * 格式化输出的 created 时间
      */
-    public function getCreatedAtAttribute($value)
-    {
-        return empty($value) ? null : date("Y-m-d H:i:s", $value);
-    }
-
-    /*
-     * 格式化输出的 updated 时间
-     */
-    public function getUpdatedAtAttribute($value)
-    {
-        return empty($value) ? null : date("Y-m-d H:i:s", $value);
-    }
-
-    /*
-     * 格式化输出的 deleted 时间
-     */
-    public function getDeletedAtAttribute($value)
-    {
-        return empty($value) ? null : date("Y-m-d H:i:s", $value);
-    }
+//    public function getCreatedAtAttribute($value)
+//    {
+//        return empty($value) ? null : date("Y-m-d H:i:s", $value);
+//    }
+//
+//    /*
+//     * 格式化输出的 updated 时间
+//     */
+//    public function getUpdatedAtAttribute($value)
+//    {
+//        return empty($value) ? null : date("Y-m-d H:i:s", $value);
+//    }
+//
+//    /*
+//     * 格式化输出的 deleted 时间
+//     */
+//    public function getDeletedAtAttribute($value)
+//    {
+//        return empty($value) ? null : date("Y-m-d H:i:s", $value);
+//    }
 }

@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,22 +31,25 @@ use Illuminate\Http\Request;
 //$api->group(['middleware' => 'api.auth'], function ($api) {
 //    $api->get('user', 'App\Http\Controllers\Api\UsersController@index');
 //});
-Route::prefix('auth')->group(function($router) {
-    $router->post('login', 'AuthController@login');
-    $router->post('logout', 'AuthController@logout');
+//Route::prefix('auth')->group(function($router) {
+//    $router->post('login', 'AuthController@login');
+//    $router->post('logout', 'AuthController@logout');
+//
+//});
 
-});
-
-Route::group(['middleware' => 'api.auth'], function ($api) {
+Route::group(['middleware' => 'auth'], function ($api) {
     $api->get('user', '\App\Http\Controllers\Api\UsersController@index');
 });
 
 Route::middleware('refresh.token')->group(function($router) {
     $router->get('profile','UserController@profile');
 });
-Route::group(['middleware' => 'api.auth'], function () {
+Route::group(['middleware' => 'auth'], function () {
     Route::get('/test', function () {
         return 'ok';
     });
 });
 
+Route::group(['prefix'=>'Bbs','namespace' => 'Api'],function($api){
+    $api->get('lable', 'Bbs\BbsLableController@getList');
+});

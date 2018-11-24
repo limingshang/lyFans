@@ -11,11 +11,11 @@ class PagingHelper
 
     public $page  = 1;
 
-    public function __construct($total = 0, $limit = 30, $symbol = 'po')
+    public function __construct($total = 0, $limit = 30, $page)
     {
-        $this->current = empty($_GET[$symbol]) ? 1 : $_GET[$symbol];
+//        $this->current = empty($_GET[$symbol]) ? 1 : $_GET[$symbol];
         $this->total = $total;
         $this->limit = $limit;
-        $this->page  = ceil($this->current / $this->limit);
+        $this->page  = $page;
     }
 }
